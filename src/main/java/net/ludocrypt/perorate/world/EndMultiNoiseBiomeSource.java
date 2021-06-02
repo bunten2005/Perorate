@@ -53,7 +53,7 @@ public class EndMultiNoiseBiomeSource extends BiomeSource {
 		this.smallIslandsBiome = smallIslandsBiome;
 		this.barrensBiome = barrensBiome;
 		ChunkRandom chunkRandom = new ChunkRandom(seed);
-		chunkRandom.consume(17292);
+		chunkRandom.skip(17292);
 		this.noise = new SimplexNoiseSampler(chunkRandom);
 		this.tlCache = ThreadLocal.withInitial(() -> new SimplexNoiseCache(this.noise));
 	}
