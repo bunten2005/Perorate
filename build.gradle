@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.8-SNAPSHOT'
+	id 'fabric-loom' version '0.9.+'
 	id 'maven-publish'
 }
 
@@ -10,8 +10,10 @@ archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
-minecraft {
-	accessWidener "src/main/resources/perorate.accesswidener"
+repositories {
+	maven {
+		url 'https://jitpack.io'
+	}
 }
 
 dependencies {
@@ -19,6 +21,10 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+}
+
+minecraft {
+    accessWidenerPath = file("src/main/resources/perorate.accesswidener")
 }
 
 processResources {
